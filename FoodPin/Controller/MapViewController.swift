@@ -188,6 +188,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         currentLocation = userLocation
     }
     
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

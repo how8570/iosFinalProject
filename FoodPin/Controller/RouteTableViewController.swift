@@ -21,8 +21,6 @@ class RouteTableViewController: UITableViewController {
 
            // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
            // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        print(routeSteps.count)
-        print(routeSteps[0].instructions)
        }
 
        // MARK: - Table view data source
