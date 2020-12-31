@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var segmentedControl: UISegmentedControl!
     
     var restaurant: RestaurantMO!
     
@@ -33,6 +34,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.showsUserLocation = true
         }
         //locationManager.delegate = self
+        
+        // Hide the segmented control by default and register the event
+        segmentedControl.isHidden = true
+        segmentedControl.addTarget(self, action: #selector(showDirection), for: .valueChanged)
         
         // Configure map view
         mapView.delegate = self
@@ -96,11 +101,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             leftIconView.image = UIImage(data: restaurantImage as Data)
         }
         annotationView?.leftCalloutAccessoryView = leftIconView
+        annotationView?.rightCalloutAccessoryView = UIButton(type: UIButton.ButtonType.detailDisclosure) //show routing steps
         
         return annotationView
     }
     
     
+    // for rending the routing path
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = (currentTransportType == .automobile) ? UIColor.blue : UIColor.orange
@@ -108,6 +115,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return renderer
     }
+    
+    // click handler for the rightCalloutAccessory on the annotation
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+          
+          performSegue(withIdentifier: "showSteps", sender: view)
+      }
     
     
     @IBAction func showDirection(_ sender: Any) {
@@ -122,6 +135,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
               let targetPlacemark = targetPlacemark else {
             return
         }
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: currentTransportType = .automobile
+        case 1: currentTransportType = .walking
+        default: break
+        }
+        
+        segmentedControl.isHidden = false
         
         let directionRequest = MKDirections.Request()
         
@@ -166,6 +187,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         currentLocation = userLocation
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+          // Get the new view controller using segue.destinationViewController.
+          // Pass the selected object to the new view controller.
+          if segue.identifier == "showSteps" {
+              let routeTableViewController = segue.destination as! RouteTableViewController
+              if let steps = currentRoute?.steps {
+                  routeTableViewController.routeSteps = steps
+              }
+          }
+      }
+      
     
     // MARK: - Location Manager Delegate methods
     
