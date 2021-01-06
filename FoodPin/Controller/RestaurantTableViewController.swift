@@ -329,6 +329,82 @@ class RestaurantTableViewController: UITableViewController, UISearchResultsUpdat
         }
     }
     
+    //MARK: - Context Menu
+    @available(iOS 13.0, *)
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        let configuration = UIContextMenuConfiguration(identifier: indexPath.row as NSCopying, previewProvider: {
+            guard let restaurantDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else {
+                return nil
+            }
+            
+            let selectedRestaurant = self.restaurants[indexPath.row]
+            restaurantDetailViewController.restaurant = selectedRestaurant
+            return restaurantDetailViewController
+            
+        }) { action in
+            
+            let checkInAction = UIAction(title: "Check-in", image: UIImage(named: "tick"))
+            { action in
+                
+                let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+                self.restaurants[indexPath.row].isVisited = (self.restaurants[indexPath.row].isVisited) ? false : true
+                cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
+            }
+            
+            let deleteAction = UIAction(title: "Delete", image: UIImage(named: "delete"))
+            { action in
+                
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    let context = appDelegate.persistentContainer.viewContext
+                    let restaurantToDelete = self.fetchResultController.object(at: indexPath)
+                    context.delete(restaurantToDelete)
+                    
+                    appDelegate.saveContext()
+                }
+            }
+            
+            let shareAction = UIAction(title: "Share",image: UIImage(named: "share"))
+            { action in
+                
+                let defaultText = "Just checking in at " + self.restaurants[indexPath.row].name!
+                let activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+            }
+            
+            let editAction = UIAction(title: "Edit",image: UIImage(named: "edit"))
+            { action in
+                
+                self.restaurantToUpdate = self.fetchResultController.object(at: indexPath)
+                self.performSegue(withIdentifier: "updateRestaurant", sender: nil)
+            }
+            
+            return UIMenu(title: "", children: [checkInAction,shareAction,deleteAction, editAction])
+        }
+        return configuration
+    }
+    
+    @available(iOS 13.0, *)
+    override func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        
+        guard let selectedRow = configuration.identifier as? Int else {
+            print("Failed to receive the row number")
+            return
+        }
+        
+        guard let restaurantDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else {
+            return
+        }
+        
+        let selectedRestaurant = self.restaurants[selectedRow]
+        restaurantDetailViewController.restaurant = selectedRestaurant
+        
+        animator.preferredCommitStyle = .pop
+        animator.addCompletion {
+            self.show(restaurantDetailViewController, sender: self)
+        }
+    }
+    
     
     
 }
