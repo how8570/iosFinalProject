@@ -40,6 +40,8 @@
 		4EE8177925413599008B828E /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8177825413599008B828E /* RestaurantTableViewCell.swift */; };
 		4EF11155259D67DD00BF9EF6 /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF11154259D67DD00BF9EF6 /* RouteTableViewController.swift */; };
 		79D4F5C72595AE1200911D45 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D4F5C52595AE1200911D45 /* FoodPin.xcdatamodeld */; };
+		AEDDA0FB25A8417E005280AC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDA0FA25A8417E005280AC /* WeatherViewController.swift */; };
+		AEDDA0FF25A843E3005280AC /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDDA0FE25A843E3005280AC /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		4EE8177825413599008B828E /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		4EF11154259D67DD00BF9EF6 /* RouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
 		79D4F5C62595AE1200911D45 /* FoodPin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodPin.xcdatamodel; sourceTree = "<group>"; };
+		AEDDA0FA25A8417E005280AC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		AEDDA0FE25A843E3005280AC /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 		4EE817562541277C008B828E = {
 			isa = PBXGroup;
 			children = (
+				AEDDA0FD25A843A1005280AC /* OpenWeatherAPI */,
 				4EE817612541277C008B828E /* FoodPin */,
 				4EE817602541277C008B828E /* Products */,
 				4E6C84F02578754800896E88 /* Frameworks */,
@@ -160,6 +165,14 @@
 			path = FoodPin;
 			sourceTree = "<group>";
 		};
+		AEDDA0FD25A843A1005280AC /* OpenWeatherAPI */ = {
+			isa = PBXGroup;
+			children = (
+				AEDDA0FE25A843E3005280AC /* WeatherModel.swift */,
+			);
+			path = OpenWeatherAPI;
+			sourceTree = "<group>";
+		};
 		EAB961AA256634790096B862 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +183,7 @@
 				4E85D7E2258AF12700B4DDA8 /* NewRestaurantController.swift */,
 				4E2189CB259440E100102351 /* AboutMeController.swift */,
 				4EF11154259D67DD00BF9EF6 /* RouteTableViewController.swift */,
+				AEDDA0FA25A8417E005280AC /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +307,8 @@
 				4EF11155259D67DD00BF9EF6 /* RouteTableViewController.swift in Sources */,
 				4E3CBE0025539CB1002913BA /* RestaurantDetailViewController.swift in Sources */,
 				4E85D7E3258AF12700B4DDA8 /* NewRestaurantController.swift in Sources */,
+				AEDDA0FF25A843E3005280AC /* WeatherModel.swift in Sources */,
+				AEDDA0FB25A8417E005280AC /* WeatherViewController.swift in Sources */,
 				4EE817652541277C008B828E /* SceneDelegate.swift in Sources */,
 				4E85D7E1258AEFEE00B4DDA8 /* RoundedTextField.swift in Sources */,
 				4EE817772541293D008B828E /* RestaurantTableViewController.swift in Sources */,

@@ -107,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95v-r2-yqQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186.9565217391305" y="122.54464285714285"/>
+            <point key="canvasLocation" x="1929" y="123"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="87i-VV-tgU">
@@ -551,7 +551,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9D-eU-m3A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276.8115942028987" y="122.54464285714285"/>
+            <point key="canvasLocation" x="1009" y="123"/>
         </scene>
         <!--New Restaurant-->
         <scene sceneID="riA-8f-2rK">
@@ -783,7 +783,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cjf-hT-isT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="32v-cT-xFP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2500" y="-822.32142857142856"/>
+            <point key="canvasLocation" x="3946" y="-822"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sci-mG-OQj">
@@ -801,26 +801,27 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1a-6y-O5M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589.8550724637682" y="-822.32142857142856"/>
+            <point key="canvasLocation" x="3088" y="-822"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Evz-ly-Vmd">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rHh-h5-tBl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N1h-NH-bQb">
+                    <tabBar key="tabBar" alpha="0.94999999999999996" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N1h-NH-bQb">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="uIi-OW-iwa" kind="relationship" relationship="viewControllers" id="gwc-0Z-tml"/>
                         <segue destination="Qjl-QE-kqJ" kind="relationship" relationship="viewControllers" id="uQ6-sy-aoa"/>
                         <segue destination="rQc-Ax-tzM" kind="relationship" relationship="viewControllers" id="sBT-jg-O6C"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLR-o9-ali" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366.66666666666669" y="122.54464285714285"/>
+            <point key="canvasLocation" x="-338" y="886"/>
         </scene>
         <!--About-->
         <scene sceneID="jdD-pH-q2t">
@@ -954,7 +955,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKz-Gz-oHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1416" y="886"/>
+            <point key="canvasLocation" x="1800" y="886"/>
         </scene>
         <!--About-->
         <scene sceneID="khI-9U-cKV">
@@ -973,7 +974,51 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tu2-Mh-36j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="504" y="886"/>
+            <point key="canvasLocation" x="1009" y="886"/>
+        </scene>
+        <!--weather-->
+        <scene sceneID="tkB-iz-m5q">
+            <objects>
+                <viewController id="uIi-OW-iwa" customClass="WeatherViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QuJ-kD-qDn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Locaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-n7-hd0">
+                                <rect key="frame" x="38" y="114" width="348" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="溫度： 12°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRE-DM-Bcg">
+                                <rect key="frame" x="28" y="172" width="358" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLR-Hm-slg">
+                                <rect key="frame" x="186" y="233" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refrash:" destination="uIi-OW-iwa" eventType="touchUpInside" id="ZQV-MQ-S1t"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iJ4-O1-hhH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="weather" image="cloud.sun" catalog="system" id="RCS-zV-TbQ"/>
+                    <connections>
+                        <outlet property="locText" destination="nIq-n7-hd0" id="XI4-1n-UEk"/>
+                        <outlet property="tempText" destination="MRE-DM-Bcg" id="tgV-bc-yn3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4x-SU-oPx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="1725.6696428571429"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -983,6 +1028,7 @@
         <image name="about" width="23" height="21"/>
         <image name="angry" width="78" height="103"/>
         <image name="chat" width="22" height="20"/>
+        <image name="cloud.sun" catalog="system" width="128" height="93"/>
         <image name="cool" width="78" height="83"/>
         <image name="cross" width="33" height="32"/>
         <image name="discover" width="35" height="20"/>
