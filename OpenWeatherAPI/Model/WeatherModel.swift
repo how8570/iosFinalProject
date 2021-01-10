@@ -19,7 +19,7 @@ struct WeatherModel: Decodable {
     let clouds: Clouds
     let dt: UInt64
     let sys: Sys
-    let timezone: Int64
+    let timezone: Int
     let id: Int
     let name: String
     

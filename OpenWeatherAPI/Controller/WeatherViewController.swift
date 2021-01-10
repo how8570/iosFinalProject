@@ -13,6 +13,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var locText: UILabel!
     @IBOutlet weak var tempText: UILabel!
+    @IBOutlet weak var weatherImg: UIImageView!
+    @IBOutlet weak var descriptionText: UILabel!
+    @IBOutlet weak var humidityText: UILabel!
+    @IBOutlet weak var pressureText: UILabel!
+    @IBOutlet weak var sunRiseText: UILabel!
+    @IBOutlet weak var sunSetText: UILabel!
+    @IBOutlet weak var dateText: UILabel!
+    
     
     @IBAction func refrash(_ sender: Any) {
         refresh()
@@ -36,7 +44,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
         }
         
     }
@@ -44,7 +52,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: refresh loc
     func refresh() {
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
         }
     }
     
@@ -56,11 +64,13 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                 "lat=\(String(format: "%f", lat))" +
                 "&lon=\(String(format: "%f", lon))" +
                 "&appid=\(apiKey)" +
+                "&lang=zh_tw" +
                 "&units=metric")
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?" +
                         "lat=\(String(format: "%f", lat))" +
                         "&lon=\(String(format: "%f", lon))" +
                         "&appid=\(apiKey)" +
+                        "&lang=zh_tw" +
                         "&units=metric")!
         
         // 將網址組成一個 URLRequest
@@ -89,8 +99,36 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                 print(weatherModel)
                 DispatchQueue.main.async {
                     self.locText.text = weatherModel.name
-                    let temp = "溫度： \(weatherModel.main.temp)°C"
-                    self.tempText.text = temp
+                    self.tempText.text = "溫度： \(weatherModel.main.temp)°C"
+                    
+                    self.descriptionText.text = weatherModel.weather[0].description
+                    self.humidityText.text = "濕度： \(weatherModel.main.humidity)%"
+                    self.pressureText.text = "氣壓： \(weatherModel.main.pressure)hPa"
+                    
+                    // date/time formatter
+                    let datefomatter = DateFormatter()
+                    datefomatter.timeZone = TimeZone(secondsFromGMT: weatherModel.timezone)
+                    datefomatter.locale = Locale(identifier: "zh_Hant_TW")
+                    datefomatter.dateFormat = "MM 日 DD 月"
+                    
+                    let timefomatter = DateFormatter()
+                    timefomatter.timeZone = TimeZone(secondsFromGMT: weatherModel.timezone)
+                    timefomatter.locale = Locale(identifier: "zh_Hant_TW")
+                    timefomatter.dateFormat = "HH:mm"
+                    
+                    let dateStr = datefomatter.string(from: Date(timeIntervalSince1970: TimeInterval(weatherModel.sys.sunrise)))
+                    
+                    let sunRiseStr = timefomatter.string(from: Date(timeIntervalSince1970: TimeInterval(weatherModel.sys.sunrise)))
+                    let sunSetStr = timefomatter.string(from: Date(timeIntervalSince1970: TimeInterval(weatherModel.sys.sunset)))
+                    
+                    self.dateText.text = dateStr
+                    self.sunRiseText.text = "日出時間： \(sunRiseStr)"
+                    self.sunSetText.text = "日落時間： \(sunSetStr)"
+                    
+                    
+                    
+                    let iconURL:URL = URL(string: "https://openweathermap.org/img/wn/\(weatherModel.weather[0].icon)@2x.png")!
+                    self.weatherImg.loadImge(withUrl: iconURL)
                 }
                 
             } catch {
@@ -101,24 +139,42 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         
         // 啟動 task
         dataTask.resume()
-        
+
         
     }
+    
     
     // MARK: Loacation part
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
         print("locations = \(locValue.longitude) \(locValue.latitude)")
-        lon = locValue.longitude
-        lat = locValue.latitude
-        locationManager.stopUpdatingLocation()
+        self.lon = locValue.longitude
+        self.lat = locValue.latitude
         callAPI()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-    
-    
+
 }
+
+
+// MARK: UI img extention (load img)
+
+extension UIImageView {
+    func loadImge(withUrl url: URL) {
+           DispatchQueue.global().async { [weak self] in
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       DispatchQueue.main.async {
+                           self?.image = image
+                       }
+                   }
+               }
+           }
+       }
+}
+
+

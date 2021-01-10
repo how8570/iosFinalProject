@@ -96,6 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A74BDFF25A9E9510092798E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AEDDA0FA25A8417E005280AC /* WeatherViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0A74BE0025A9E9670092798E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEDDA0FE25A843E3005280AC /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4E0D3DEB256F3E4900E04A0E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +184,8 @@
 		AEDDA0FD25A843A1005280AC /* OpenWeatherAPI */ = {
 			isa = PBXGroup;
 			children = (
-				AEDDA0FE25A843E3005280AC /* WeatherModel.swift */,
+				0A74BE0025A9E9670092798E /* Model */,
+				0A74BDFF25A9E9510092798E /* Controller */,
 			);
 			path = OpenWeatherAPI;
 			sourceTree = "<group>";
@@ -183,7 +200,6 @@
 				4E85D7E2258AF12700B4DDA8 /* NewRestaurantController.swift */,
 				4E2189CB259440E100102351 /* AboutMeController.swift */,
 				4EF11154259D67DD00BF9EF6 /* RouteTableViewController.swift */,
-				AEDDA0FA25A8417E005280AC /* WeatherViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
