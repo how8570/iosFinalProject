@@ -990,45 +990,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VEI-Br-hIf">
-                                <rect key="frame" x="20" y="112.5" width="374" height="128"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ztT-zN-NG0">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="3Vh-K3-Peh"/>
-                                            <constraint firstAttribute="width" constant="128" id="XqZ-uK-4OC"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-tO-Nwm">
-                                        <rect key="frame" x="152" y="0.0" width="222" height="120"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-n7-hd0">
-                                                <rect key="frame" x="0.0" y="0.0" width="222" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="溫度： 12°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRE-DM-Bcg">
-                                                <rect key="frame" x="0.0" y="45" width="222" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLR-Hm-slg">
-                                                <rect key="frame" x="0.0" y="90" width="222" height="30"/>
-                                                <color key="backgroundColor" systemColor="linkColor"/>
-                                                <state key="normal" title="Refresh">
-                                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="refrash:" destination="uIi-OW-iwa" eventType="touchUpInside" id="ZQV-MQ-S1t"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="1LL-Bw-8VF">
                                 <rect key="frame" x="20" y="260.5" width="374" height="61.5"/>
                                 <subviews>
@@ -1082,6 +1043,62 @@
                                     <constraint firstAttribute="trailing" secondItem="KeM-15-sTe" secondAttribute="trailing" id="obu-m2-EYp"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VEI-Br-hIf">
+                                <rect key="frame" x="20" y="112.5" width="374" height="128"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ztT-zN-NG0">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="3Vh-K3-Peh"/>
+                                            <constraint firstAttribute="width" constant="128" id="XqZ-uK-4OC"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dme-tO-Nwm">
+                                        <rect key="frame" x="152" y="0.0" width="222" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Locaction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-n7-hd0">
+                                                <rect key="frame" x="0.0" y="0.0" width="222" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="溫度： 12°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRE-DM-Bcg">
+                                                <rect key="frame" x="0.0" y="45" width="222" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLR-Hm-slg">
+                                                <rect key="frame" x="0.0" y="90" width="222" height="30"/>
+                                                <color key="backgroundColor" systemColor="linkColor"/>
+                                                <state key="normal" title="Refresh">
+                                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="refrash:" destination="uIi-OW-iwa" eventType="touchUpInside" id="ZQV-MQ-S1t"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="osI-Pp-n8e">
+                                <rect key="frame" x="47" y="352" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="DjT-86-Mvm"/>
+                                    <constraint firstAttribute="height" constant="320" id="SHc-2e-25s"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYe-7S-wEy">
+                                <rect key="frame" x="47" y="687" width="320" height="30"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <state key="normal" title="I want a NEW kitty !!">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="refrashKitty:" destination="uIi-OW-iwa" eventType="touchUpInside" id="90s-AQ-NR5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iJ4-O1-hhH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1090,11 +1107,17 @@
                             <constraint firstItem="iJ4-O1-hhH" firstAttribute="trailing" secondItem="VEI-Br-hIf" secondAttribute="trailing" constant="20" id="AgD-Fo-tVQ"/>
                             <constraint firstItem="1LL-Bw-8VF" firstAttribute="leading" secondItem="iJ4-O1-hhH" secondAttribute="leading" constant="20" id="CM2-ht-XIw"/>
                             <constraint firstItem="iJ4-O1-hhH" firstAttribute="trailing" secondItem="cl5-Mo-alY" secondAttribute="trailing" constant="20" id="LLN-p3-hfR"/>
+                            <constraint firstItem="ZYe-7S-wEy" firstAttribute="top" secondItem="osI-Pp-n8e" secondAttribute="bottom" constant="15" id="P7P-2k-JMF"/>
+                            <constraint firstItem="iJ4-O1-hhH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZYe-7S-wEy" secondAttribute="trailing" symbolic="YES" id="Pn0-zu-a4h"/>
                             <constraint firstItem="VEI-Br-hIf" firstAttribute="top" secondItem="cl5-Mo-alY" secondAttribute="bottom" constant="10" id="RiT-px-1yN"/>
                             <constraint firstItem="iJ4-O1-hhH" firstAttribute="trailing" secondItem="1LL-Bw-8VF" secondAttribute="trailing" constant="20" id="VUr-Jz-C4v"/>
+                            <constraint firstItem="osI-Pp-n8e" firstAttribute="centerX" secondItem="1LL-Bw-8VF" secondAttribute="centerX" id="mh6-Gv-cqA"/>
+                            <constraint firstItem="osI-Pp-n8e" firstAttribute="top" secondItem="1LL-Bw-8VF" secondAttribute="bottom" constant="30" id="osT-dj-Tnz"/>
                             <constraint firstItem="VEI-Br-hIf" firstAttribute="leading" secondItem="iJ4-O1-hhH" secondAttribute="leading" constant="20" id="prc-Pj-aS4"/>
                             <constraint firstItem="cl5-Mo-alY" firstAttribute="top" secondItem="QuJ-kD-qDn" secondAttribute="topMargin" constant="20" id="r9F-uz-aaP"/>
                             <constraint firstItem="cl5-Mo-alY" firstAttribute="leading" secondItem="iJ4-O1-hhH" secondAttribute="leading" constant="20" id="wYI-O4-AnF"/>
+                            <constraint firstItem="ZYe-7S-wEy" firstAttribute="width" secondItem="osI-Pp-n8e" secondAttribute="width" id="xIv-lu-6pQ"/>
+                            <constraint firstItem="ZYe-7S-wEy" firstAttribute="leading" secondItem="osI-Pp-n8e" secondAttribute="leading" id="zm9-lU-w2c"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="weather" image="cloud.sun" catalog="system" id="RCS-zV-TbQ"/>
@@ -1102,6 +1125,7 @@
                         <outlet property="dateText" destination="cl5-Mo-alY" id="xNn-a3-T9H"/>
                         <outlet property="descriptionText" destination="KeM-15-sTe" id="mZg-4Z-VYu"/>
                         <outlet property="humidityText" destination="Z7E-4s-S5q" id="dte-Mp-35J"/>
+                        <outlet property="kittyImg" destination="osI-Pp-n8e" id="dKh-6A-Dao"/>
                         <outlet property="locText" destination="nIq-n7-hd0" id="XI4-1n-UEk"/>
                         <outlet property="pressureText" destination="sx7-ot-3rX" id="lpO-3V-YLs"/>
                         <outlet property="sunRiseText" destination="Qca-d0-Drc" id="P3p-kC-plS"/>

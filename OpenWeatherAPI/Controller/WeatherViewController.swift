@@ -20,10 +20,14 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var sunRiseText: UILabel!
     @IBOutlet weak var sunSetText: UILabel!
     @IBOutlet weak var dateText: UILabel!
+    @IBOutlet weak var kittyImg: UIImageView!
     
     
     @IBAction func refrash(_ sender: Any) {
         refresh()
+    }
+    @IBAction func refrashKitty(_ sender: Any) {
+        refreshKitty()
     }
     
     let locationManager = CLLocationManager()
@@ -49,6 +53,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         
         weatherImg.backgroundColor = UIColor(hex: "#5500dcdc")
         weatherImg.roundedImage()
+        callTheCatAPI()
         
     }
     
@@ -59,22 +64,23 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    // MARK: refresh Kitty
+    func refreshKitty() {
+        callTheCatAPI()
+    }
+    
+    
     // MARK: CallAPI and update View
     
-    private func callAPI() {
+    private func callOpenWeatherAPI() {
         // 根據網站的 Request tab info 我們拼出請求的網址
-        print("https://api.openweathermap.org/data/2.5/weather?" +
-                "lat=\(String(format: "%f", lat))" +
-                "&lon=\(String(format: "%f", lon))" +
-                "&appid=\(apiKey)" +
-                "&lang=zh_tw" +
-                "&units=metric")
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?" +
                         "lat=\(String(format: "%f", lat))" +
                         "&lon=\(String(format: "%f", lon))" +
                         "&appid=\(apiKey)" +
                         "&lang=zh_tw" +
                         "&units=metric")!
+        print("On calling OpenWeather API with \n url: \(url) \n")
         
         // 將網址組成一個 URLRequest
         var request = URLRequest(url: url)
@@ -131,7 +137,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                     
                     
                     let iconURL:URL = URL(string: "https://openweathermap.org/img/wn/\(weatherModel.weather[0].icon)@2x.png")!
-                    self.weatherImg.loadImge(withUrl: iconURL)
+                    self.weatherImg.loadImg(withUrl: iconURL)
                 }
                 
             } catch {
@@ -142,10 +148,51 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         
         // 啟動 task
         dataTask.resume()
-
-        
     }
     
+    private func callTheCatAPI() {
+        // 根據網站的 Request tab info 我們拼出請求的網址
+        let url = URL(string: "https://api.thecatapi.com/v1/images/search")!
+        print("On calling TheCat API with \n url: \(url) \n")
+        
+        // 將網址組成一個 URLRequest
+        var request = URLRequest(url: url)
+        
+        // 設置請求的方法為 GET
+        request.httpMethod = "GET"
+        
+        // 建立 URLSession
+        let session = URLSession.shared
+        
+        // 使用 sesstion + request 組成一個 task
+        // 並設置好，當收到回應時，需要處理的動作
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            // 這邊是收到回應時會執行的 code
+            
+            // 因為 data 是 optional，有可能請求失敗，導致 data 是空的
+            // 如果是空的，我們直接 return，不做接下來的動作
+            guard let data = data else {
+                return
+            }
+            
+            do {
+                // 使用 JSONDecoder 去解開 data
+                let cat = try JSONDecoder().decode([Cat].self, from: data)
+                print(cat)
+                DispatchQueue.main.async {
+                    let kittyImgSource:URL = URL(string: "\(cat[0].url)")!
+                    self.kittyImg.loadImgToSquare(withUrl: kittyImgSource)
+                }
+                
+            } catch {
+                print(error)
+            }
+            
+        })
+        
+        // 啟動 task
+        dataTask.resume()
+    }
     
     // MARK: Loacation part
     
@@ -154,7 +201,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         print("locations = \(locValue.longitude) \(locValue.latitude)")
         self.lon = locValue.longitude
         self.lat = locValue.latitude
-        callAPI()
+        callOpenWeatherAPI()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -163,11 +210,38 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
 
 }
 
+func cropImageToSquare(image: UIImage) -> UIImage? {
+    var imageHeight = image.size.height
+    var imageWidth = image.size.width
 
-// MARK: UI img extention
+    if imageHeight > imageWidth {
+        imageHeight = imageWidth
+    }
+    else {
+        imageWidth = imageHeight
+    }
+
+    let size = CGSize(width: imageWidth, height: imageHeight)
+
+    let refWidth : CGFloat = CGFloat(image.cgImage!.width)
+    let refHeight : CGFloat = CGFloat(image.cgImage!.height)
+
+    let x = (refWidth - size.width) / 2
+    let y = (refHeight - size.height) / 2
+
+    let cropRect = CGRect(x: x, y: y, width: size.height, height: size.width)
+    if let imageRef = image.cgImage!.cropping(to: cropRect) {
+        return UIImage(cgImage: imageRef, scale: 0, orientation: image.imageOrientation)
+    }
+
+    return nil
+}
+
+// MARK: UI extentions
 
 extension UIImageView {
-    func loadImge(withUrl url: URL) {
+    // load img from url
+    func loadImg(withUrl url: URL) {
            DispatchQueue.global().async { [weak self] in
                if let imageData = try? Data(contentsOf: url) {
                    if let image = UIImage(data: imageData) {
@@ -178,16 +252,31 @@ extension UIImageView {
                }
            }
        }
-}
-
-extension UIImageView {
+    
+    // load img from url
+    func loadImgToSquare(withUrl url: URL) {
+           DispatchQueue.global().async { [weak self] in
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       DispatchQueue.main.async {
+                        self?.image = cropImageToSquare(image: image)
+                       }
+                   }
+               }
+           }
+       }
+    
+    
+    // make imageView round shape
     func roundedImage() {
         self.layer.cornerRadius = (self.frame.size.width) / 2;
         self.clipsToBounds = true
         self.layer.borderWidth = 3.0
         self.layer.borderColor = UIColor.white.cgColor
     }
+    
 }
+
 
 extension UIColor {
     public convenience init?(hex: String) {

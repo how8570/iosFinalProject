@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A156FD125ABDA0200B2DB2B /* TheCatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A156FD025ABDA0200B2DB2B /* TheCatModel.swift */; };
 		4E0D3DF8256F3E9D00E04A0E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D3DED256F3E9D00E04A0E /* OFL.txt */; };
 		4E0D3DF9256F3E9D00E04A0E /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D3DEE256F3E9D00E04A0E /* Rubik-BlackItalic.ttf */; };
 		4E0D3DFA256F3E9D00E04A0E /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D3DEF256F3E9D00E04A0E /* Rubik-Light.ttf */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A156FD025ABDA0200B2DB2B /* TheCatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCatModel.swift; sourceTree = "<group>"; };
 		4E0D3DED256F3E9D00E04A0E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		4E0D3DEE256F3E9D00E04A0E /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		4E0D3DEF256F3E9D00E04A0E /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
@@ -96,6 +98,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A156FCE25ABD9CC00B2DB2B /* TheCatAPI */ = {
+			isa = PBXGroup;
+			children = (
+				0A156FCF25ABD9DF00B2DB2B /* Model */,
+			);
+			path = TheCatAPI;
+			sourceTree = "<group>";
+		};
+		0A156FCF25ABD9DF00B2DB2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A156FD025ABDA0200B2DB2B /* TheCatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0A74BDFF25A9E9510092798E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +167,7 @@
 		4EE817562541277C008B828E = {
 			isa = PBXGroup;
 			children = (
+				0A156FCE25ABD9CC00B2DB2B /* TheCatAPI */,
 				AEDDA0FD25A843A1005280AC /* OpenWeatherAPI */,
 				4EE817612541277C008B828E /* FoodPin */,
 				4EE817602541277C008B828E /* Products */,
@@ -316,6 +335,7 @@
 				4E0D3E08256F527F00E04A0E /* RestaurantDetailTextCell.swift in Sources */,
 				4EE817632541277C008B828E /* AppDelegate.swift in Sources */,
 				4E5419B42566047000AE2EB4 /* Restaurant.swift in Sources */,
+				0A156FD125ABDA0200B2DB2B /* TheCatModel.swift in Sources */,
 				79D4F5C72595AE1200911D45 /* FoodPin.xcdatamodeld in Sources */,
 				4E0D3E06256F518100E04A0E /* RestaurantDetailIconTextCell.swift in Sources */,
 				4E0D3E04256F441700E04A0E /* RestaurantDetailHeaderView.swift in Sources */,
