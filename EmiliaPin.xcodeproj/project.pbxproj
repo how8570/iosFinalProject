@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A156FD125ABDA0200B2DB2B /* TheCatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A156FD025ABDA0200B2DB2B /* TheCatModel.swift */; };
+		0ACBB7D625ACCA0100FE58E4 /* open-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ACBB7D525ACCA0000FE58E4 /* open-logo.png */; };
 		4E0D3DF8256F3E9D00E04A0E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D3DED256F3E9D00E04A0E /* OFL.txt */; };
 		4E0D3DF9256F3E9D00E04A0E /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D3DEE256F3E9D00E04A0E /* Rubik-BlackItalic.ttf */; };
 		4E0D3DFA256F3E9D00E04A0E /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D3DEF256F3E9D00E04A0E /* Rubik-Light.ttf */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0A156FD025ABDA0200B2DB2B /* TheCatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCatModel.swift; sourceTree = "<group>"; };
+		0ACBB7D525ACCA0000FE58E4 /* open-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "open-logo.png"; sourceTree = "<group>"; };
 		4E0D3DED256F3E9D00E04A0E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		4E0D3DEE256F3E9D00E04A0E /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
 		4E0D3DEF256F3E9D00E04A0E /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Light.ttf"; sourceTree = "<group>"; };
@@ -71,11 +73,11 @@
 		4E6C84F7257882E600896E88 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4E85D7E0258AEFEE00B4DDA8 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		4E85D7E2258AF12700B4DDA8 /* NewRestaurantController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantController.swift; sourceTree = "<group>"; };
-		4EE8175F2541277C008B828E /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EE8175F2541277C008B828E /* EmiliaPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmiliaPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE817622541277C008B828E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EE817642541277C008B828E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4EE817692541277C008B828E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4EE8176B2541277C008B828E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EE8176B2541277C008B828E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/kevin/Desktop/FoodPin-CoreData/FoodPin/Assets.xcassets"; sourceTree = "<absolute>"; };
 		4EE8176E2541277C008B828E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4EE817702541277C008B828E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EE817762541293D008B828E /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +180,7 @@
 		4EE817602541277C008B828E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EE8175F2541277C008B828E /* FoodPin.app */,
+				4EE8175F2541277C008B828E /* EmiliaPin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 		4EE817612541277C008B828E /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				0ACBB7D525ACCA0000FE58E4 /* open-logo.png */,
 				4E0D3DEB256F3E4900E04A0E /* Resources */,
 				EAB961AD2566349A0096B862 /* Model */,
 				EAB961AC256634920096B862 /* View */,
@@ -249,9 +252,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4EE8175E2541277C008B828E /* FoodPin */ = {
+		4EE8175E2541277C008B828E /* EmiliaPin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4EE817732541277C008B828E /* Build configuration list for PBXNativeTarget "FoodPin" */;
+			buildConfigurationList = 4EE817732541277C008B828E /* Build configuration list for PBXNativeTarget "EmiliaPin" */;
 			buildPhases = (
 				4EE8175B2541277C008B828E /* Sources */,
 				4EE8175C2541277C008B828E /* Frameworks */,
@@ -261,9 +264,9 @@
 			);
 			dependencies = (
 			);
-			name = FoodPin;
+			name = EmiliaPin;
 			productName = FoodPin;
-			productReference = 4EE8175F2541277C008B828E /* FoodPin.app */;
+			productReference = 4EE8175F2541277C008B828E /* EmiliaPin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -281,7 +284,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4EE8175A2541277C008B828E /* Build configuration list for PBXProject "FoodPin" */;
+			buildConfigurationList = 4EE8175A2541277C008B828E /* Build configuration list for PBXProject "EmiliaPin" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -294,7 +297,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4EE8175E2541277C008B828E /* FoodPin */,
+				4EE8175E2541277C008B828E /* EmiliaPin */,
 			);
 		};
 /* End PBXProject section */
@@ -315,6 +318,7 @@
 				4E0D3DF8256F3E9D00E04A0E /* OFL.txt in Resources */,
 				4E0D3E00256F3E9D00E04A0E /* Rubik-Italic.ttf in Resources */,
 				4E0D3E01256F3E9D00E04A0E /* Rubik-Medium.ttf in Resources */,
+				0ACBB7D625ACCA0100FE58E4 /* open-logo.png in Resources */,
 				4E0D3DFB256F3E9D00E04A0E /* Rubik-BoldItalic.ttf in Resources */,
 				4E0D3DFF256F3E9D00E04A0E /* Rubik-MediumItalic.ttf in Resources */,
 				4EE8176A2541277C008B828E /* Main.storyboard in Resources */,
@@ -491,7 +495,7 @@
 		4EE817742541277C008B828E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5DJ9683Z4;
 				INFOPLIST_FILE = FoodPin/Info.plist;
@@ -510,7 +514,7 @@
 		4EE817752541277C008B828E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5DJ9683Z4;
 				INFOPLIST_FILE = FoodPin/Info.plist;
@@ -529,7 +533,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4EE8175A2541277C008B828E /* Build configuration list for PBXProject "FoodPin" */ = {
+		4EE8175A2541277C008B828E /* Build configuration list for PBXProject "EmiliaPin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EE817712541277C008B828E /* Debug */,
@@ -538,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4EE817732541277C008B828E /* Build configuration list for PBXNativeTarget "FoodPin" */ = {
+		4EE817732541277C008B828E /* Build configuration list for PBXNativeTarget "EmiliaPin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EE817742541277C008B828E /* Debug */,
